@@ -1,0 +1,25 @@
+ <!--电影列表开始-->
+<div class="list">
+    <ul>
+        <li ng-repeat="item in data.subjects track by $index">
+            <a href="#/details">
+                <!--因为如果直接在img标签中书写src="{{}}"这种形式来设置src属性的话
+                如果angular加载比较慢，那么浏览器会直接将该插值表达式{{}}作为url地址发送图片请求
+                所以会出现404的状况-->
+                <!--为了解决这个问题，angular提供了一个 ng-src属性，他可以确保angular将内容解析完毕之后在发送src，请求图片-->
+                <img ng-src="{{item.images.large}}" alt="">
+            </a>
+            <div class="meta">
+                <h4><span>{{item.title}}</span> <em>{{item.rating.average}}分</em></h4>
+                <div class="otherinfo">类型:<span ng-repeat="subitem in item.genres track by $index">{{subitem}}</span></div>
+            </div>
+        </li>
+    </ul>
+    <div class="paging">
+        <label>总共：{{data.total}}条记录,第{{currentPage}}/{{totalPage}}页;</label>
+        <!-- 加上disable类样式，表示按钮禁用状态 -->
+        <button class="prev" ng-class="{disable: currentPage == 1 }" ng-click="prevPage()">上一页</button>
+        <button class="next" ng-class="{disable: currentPage == totalPage }" ng-click="nextPage()">下一页</button>
+    </div>
+</div>
+<!--电影列表结束-->
