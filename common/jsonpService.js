@@ -1,7 +1,7 @@
 (function (angular) {
     angular
-        .module("common.jsonp", [])
-        .service("jsonpService", ["$window", function ($window) {
+    .module("common.jsonp", [])
+    .service("jsonpService", ["$window", function ($window) {
 
             // var $ = angular.element;
             //按照之前讲解的jsonp的封装原理进行操作

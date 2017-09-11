@@ -2,7 +2,7 @@
 <div class="list">
     <ul>
         <li ng-repeat="item in data.subjects track by $index">
-            <a href="#/details">
+            <a href="#/details/{{item.id}}">
                 <!--因为如果直接在img标签中书写src="{{}}"这种形式来设置src属性的话
                 如果angular加载比较慢，那么浏览器会直接将该插值表达式{{}}作为url地址发送图片请求
                 所以会出现404的状况-->
@@ -23,3 +23,14 @@
     </div>
 </div>
 <!--电影列表结束-->
+
+
+<!-- 加载动画遮罩层 -->
+<div id="preview-area" ng-show="isMaskShow">
+    <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+    </div>
+</div>
